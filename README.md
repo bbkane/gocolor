@@ -8,8 +8,11 @@ Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtua
 
 See [tests](./gocolor_test.go).
 
+![TestWithReflection.png](TestWithReflection.png)
+
 ## Inspirations
 
-- https://github.com/TwiN/go-color (API)
+- https://github.com/TwiN/go-color (API inspiration)
+- https://github.com/bbkane/go-color (my - now deprecated - fork of TwiN/go-color)
 - https://github.com/fatih/color (color naming)
 - https://github.com/jedib0t/go-pretty (Windows code)
