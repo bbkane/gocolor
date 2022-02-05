@@ -22,3 +22,14 @@ func EnableConsole() error {
 func (c *Color) Add(color string, message string) string {
 	return color + message + c.Default
 }
+
+// ColorFunc colors a message and resets the color afterwards. Use Func() to generate a ColorFunc with a specific color
+type ColorFunc = func(message string) string
+
+// Func generates a ColorFunc from a color code. It uses the address of the code instead
+// of the value because the code's value might change (for example to "" when Disable() is called)
+func (c *Color) Func(codePtr *string) ColorFunc {
+	return func(message string) string {
+		return c.Add(*codePtr, message)
+	}
+}

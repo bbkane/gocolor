@@ -16,3 +16,8 @@ See [tests](./gocolor_test.go).
 - https://github.com/bbkane/go-color (my - now deprecated - fork of TwiN/go-color)
 - https://github.com/fatih/color (color naming)
 - https://github.com/jedib0t/go-pretty (Windows code)
+
+## TODO / Ideas
+
+strongly type Code
+Empty Code

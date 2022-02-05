@@ -8,16 +8,29 @@ import (
 	"github.com/bbkane/gocolor"
 )
 
-// NOTE: these must be manually inspected to ensure they pass
+// NOTE: these "tests" must be manually inspected to ensure they pass
+
+func printTestName(t *testing.T, c *gocolor.Color) {
+	fmt.Println(
+		c.Add(
+			c.Underline+c.Bold+c.FgWhiteBright,
+			"# "+t.Name(),
+		),
+	)
+	fmt.Println()
+}
 
 // TestPrepare demos the Prepare convienience method to get colors
 func TestPrepare(t *testing.T) {
 	color := gocolor.Prepare(true)
 
+	printTestName(t, &color)
+
 	fmt.Println(
 		color.Add(color.FgRed, "FgRed"),
 		color.Add(color.FgCyanBright+color.Negative, "FgCyanBright+Negative"),
 	)
+	fmt.Println()
 }
 
 // TestManualCreation demos the less magic way of getting colors. This way let's you test for errors explicitly
@@ -29,15 +42,20 @@ func TestManualCreation(t *testing.T) {
 	color := gocolor.Color{}
 	color.Enable()
 
+	printTestName(t, &color)
+
 	fmt.Println(
 		color.Add(color.FgYellowBright, "Hello!"),
 		color.Add(color.BgBlue+color.FgRed, "World!"),
 	)
+	fmt.Println()
 }
 
 // TestWithReflection demoes all colors - though not combined with each other :)
 func TestWithReflection(t *testing.T) {
 	color := gocolor.Prepare(true)
+
+	printTestName(t, &color)
 
 	e := reflect.ValueOf(&color).Elem()
 
@@ -51,5 +69,18 @@ func TestWithReflection(t *testing.T) {
 		}
 	}
 	fmt.Println()
+}
 
+func TestFunc(t *testing.T) {
+	color := gocolor.Prepare(true)
+
+	printTestName(t, &color)
+
+	green := color.Func(&color.FgGreenBright)
+	fmt.Println(green("Enabled!"))
+
+	color.Disable()
+	fmt.Println(green("Disabled!"))
+
+	fmt.Println()
 }
