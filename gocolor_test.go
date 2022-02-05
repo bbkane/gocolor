@@ -1,0 +1,1 @@
+package gocolor_test
