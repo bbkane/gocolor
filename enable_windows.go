@@ -7,6 +7,7 @@ import (
 )
 
 func enableConsole() error {
+	// setting for os.Stdout also seems to affect os.Stderr
 	stdoutPtr := os.Stdout.Fd()
 	return enable(stdoutPtr)
 }
@@ -29,11 +30,5 @@ func enable(out uintptr) error {
 		handle,
 		stdoutConsoleMode|flags,
 	)
-	if err != nil {
-		return err
-	}
-	setColors()
-	enabled = true
-
-	return nil
+	return err
 }
