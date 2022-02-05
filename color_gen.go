@@ -131,7 +131,7 @@ const Positive Code = Code("\033[27m")
 const Underline Code = Code("\033[4m")
 
 
-// Color contains all 16 colors listed in https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
+// Color contains all colors listed in https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
 type Color struct {
 
 	// BgBlack - Applies non-bold/bright black to background
@@ -265,8 +265,8 @@ type Color struct {
 
 }
 
-// Disable sets all colors to the empty string, effectivly disabling color output
-func (c *Color) Disable() {
+// DisableAll sets all colors to the empty string, effectivly disabling color output
+func (c *Color) DisableAll() {
 	c.BgBlack = Empty
 	c.BgBlackBright = Empty
 	c.BgBlue = Empty
@@ -312,8 +312,8 @@ func (c *Color) Disable() {
 	c.Underline = Empty
 }
 
-// Enable sets all colors to their color codes
-func (c *Color) Enable() {
+// EnableAll sets all colors to their color codes
+func (c *Color) EnableAll() {
 	c.BgBlack = BgBlack
 	c.BgBlackBright = BgBlackBright
 	c.BgBlue = BgBlue

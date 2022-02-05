@@ -8,7 +8,9 @@ import (
 	"github.com/bbkane/gocolor"
 )
 
-// NOTE: these "tests" must be manually inspected to ensure they pass
+// NOTE: these "tests" must be manually inspected to ensure they pass.
+// I would love to use example tests ( https://go.dev/blog/examples ) but
+// those seem to swallow stdout, which I need to see
 
 func printTestName(t *testing.T, c *gocolor.Color) {
 	fmt.Println()
@@ -42,7 +44,7 @@ func TestManualCreation(t *testing.T) {
 		t.Fatal(err)
 	}
 	color := gocolor.Color{}
-	color.Enable()
+	color.EnableAll()
 
 	printTestName(t, &color)
 
@@ -81,7 +83,7 @@ func TestFunc(t *testing.T) {
 	green := color.Func(&color.FgGreenBright)
 	fmt.Println(green("Enabled!"))
 
-	color.Disable()
+	color.DisableAll()
 	fmt.Println(green("Disabled!"))
 
 	fmt.Println()

@@ -76,7 +76,7 @@ class ColorInfo(typing.NamedTuple):
 
 def print_color_struct(colors: typing.List[ColorInfo]):
     print(
-        "// Color contains all 16 colors listed in https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting"
+        "// Color contains all colors listed in https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting"
     )
     print("type Color struct {")
     print()
@@ -91,8 +91,8 @@ def print_color_struct(colors: typing.List[ColorInfo]):
 
 
 def print_color_enable(colors: typing.List[ColorInfo]):
-    print("// Enable sets all colors to their color codes")
-    print("func (c *Color) Enable() {")
+    print("// EnableAll sets all colors to their color codes")
+    print("func (c *Color) EnableAll() {")
 
     for ci in colors:
         print(f"\tc.{ci.name} = {ci.name}")
@@ -102,8 +102,8 @@ def print_color_enable(colors: typing.List[ColorInfo]):
 
 
 def print_color_disable(colors: typing.List[ColorInfo]):
-    print("// Disable sets all colors to the empty string, effectivly disabling color output")
-    print("func (c *Color) Disable() {")
+    print("// DisableAll sets all colors to the empty string, effectivly disabling color output")
+    print("func (c *Color) DisableAll() {")
 
     for ci in colors:
         print(f"\tc.{ci.name} = Empty")
