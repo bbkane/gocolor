@@ -11,6 +11,8 @@ import (
 // NOTE: these "tests" must be manually inspected to ensure they pass
 
 func printTestName(t *testing.T, c *gocolor.Color) {
+	fmt.Println()
+
 	fmt.Println(
 		c.Add(
 			c.Underline+c.Bold+c.FgWhiteBright,
@@ -61,7 +63,7 @@ func TestWithReflection(t *testing.T) {
 
 	for i := 0; i < e.NumField(); i++ {
 		name := e.Type().Field(i).Name
-		val := e.Field(i).Interface().(string)
+		val := e.Field(i).Interface().(gocolor.Code)
 		fmt.Print(color.Add(val, name))
 		fmt.Print(" ")
 		if (i+1)%6 == 0 {

@@ -19,8 +19,8 @@ func EnableConsole() error {
 }
 
 // Add colors a message and resets the color afterwards
-func (c *Color) Add(color string, message string) string {
-	return color + message + c.Default
+func (c *Color) Add(color Code, message string) string {
+	return string(color) + message + string(c.Default)
 }
 
 // ColorFunc colors a message and resets the color afterwards. Use Func() to generate a ColorFunc with a specific color
@@ -28,8 +28,14 @@ type ColorFunc = func(message string) string
 
 // Func generates a ColorFunc from a color code. It uses the address of the code instead
 // of the value because the code's value might change (for example to "" when Disable() is called)
-func (c *Color) Func(codePtr *string) ColorFunc {
+func (c *Color) Func(codePtr *Code) ColorFunc {
 	return func(message string) string {
 		return c.Add(*codePtr, message)
 	}
 }
+
+// Code is a color code string
+type Code string
+
+// Empty represents the absence of a color code. Used for Disable
+const Empty = Code("")

@@ -6,7 +6,7 @@ Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtua
 
 ## Usage
 
-See [tests](./gocolor_test.go).
+See [tests](./gocolor_test.go). Also see [mattn/go-isatty](https://github.com/mattn/go-isatty) to test if your program is working with a tty before you enable color.
 
 ![TestWithReflection.png](TestWithReflection.png)
 
@@ -17,7 +17,3 @@ See [tests](./gocolor_test.go).
 - https://github.com/fatih/color (color naming)
 - https://github.com/jedib0t/go-pretty (Windows code)
 
-## TODO / Ideas
-
-strongly type Code
-Empty Code
