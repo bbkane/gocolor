@@ -4,6 +4,8 @@ A tiny cross-platform cross-platform terminal color library that supports enabli
 
 Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
 
+Tested on MacOS and (occasionally) on Ubuntu 20 and Windows 10.
+
 ## Usage
 
 See [tests](./gocolor_test.go). Also see [mattn/go-isatty](https://github.com/mattn/go-isatty) to test if your program is working with a tty before you enable color.
