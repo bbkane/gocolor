@@ -1,6 +1,6 @@
 # gocolor
 
-The simplest cross-platform 16 terminal color library I could make without `init` or package level vars.
+A tiny cross-platform cross-platform terminal color library that supports enabling and disabling colors.
 
 Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
 

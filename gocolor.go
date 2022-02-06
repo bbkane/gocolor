@@ -2,15 +2,15 @@ package gocolor
 
 // Prepare is a convenience method that calls EnableConsole
 // and returns an enabled color if there's no error and startEnabled is True,
-// and a disabled color otherwise.
-func Prepare(startEnabled bool) Color {
+// and a disabled color and the error otherwise.
+func Prepare(startEnabled bool) (Color, error) {
 	err := EnableConsole()
 	if err != nil || !startEnabled {
-		return Color{}
+		return Color{}, err
 	}
 	col := Color{}
 	col.EnableAll()
-	return col
+	return col, nil
 }
 
 // EnableConsole enables color printing on Windows and is a no-op
@@ -39,5 +39,5 @@ func (c *Color) Func(codePtr *Code) ColorFunc {
 // Code is a color code string
 type Code string
 
-// Empty represents the absence of a color code. Used for Disable
-const Empty Code = Code("")
+// empty represents the absence of a color code. Used for Disable
+const empty Code = Code("")

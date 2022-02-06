@@ -26,7 +26,10 @@ func printTestName(t *testing.T, c *gocolor.Color) {
 
 // TestPrepare demos the Prepare convienience method to get colors
 func TestPrepare(t *testing.T) {
-	color := gocolor.Prepare(true)
+	color, err := gocolor.Prepare(true)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	printTestName(t, &color)
 
@@ -57,7 +60,10 @@ func TestManualCreation(t *testing.T) {
 
 // TestWithReflection demoes all colors - though not combined with each other :)
 func TestWithReflection(t *testing.T) {
-	color := gocolor.Prepare(true)
+	color, err := gocolor.Prepare(true)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	printTestName(t, &color)
 
@@ -76,7 +82,10 @@ func TestWithReflection(t *testing.T) {
 }
 
 func TestFunc(t *testing.T) {
-	color := gocolor.Prepare(true)
+	color, err := gocolor.Prepare(true)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	printTestName(t, &color)
 
