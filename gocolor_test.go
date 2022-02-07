@@ -40,7 +40,7 @@ func TestPrepare(t *testing.T) {
 	fmt.Println()
 }
 
-// TestManualCreation demos the less magic way of getting colors. This way let's you test for errors explicitly
+// TestManualCreation demos creating a Color object without using Prepare
 func TestManualCreation(t *testing.T) {
 	err := gocolor.EnableConsole()
 	if err != nil {
