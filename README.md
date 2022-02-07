@@ -1,6 +1,6 @@
 # gocolor
 
-A tiny cross-platform cross-platform terminal color library that supports enabling and disabling colors.
+A tiny cross-platform terminal color library that supports enabling and disabling colors.
 
 Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
 
