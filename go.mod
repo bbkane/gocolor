@@ -1,4 +1,4 @@
-module github.com/bbkane/gocolor
+module go.bbkane.com/gocolor
 
 go 1.17
 

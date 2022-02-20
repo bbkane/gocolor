@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/bbkane/gocolor"
+	"go.bbkane.com/gocolor"
 )
 
 // NOTE: these "tests" must be manually inspected to ensure they pass.
