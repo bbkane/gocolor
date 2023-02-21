@@ -8,6 +8,7 @@ func Prepare(startEnabled bool) (Color, error) {
 	if err != nil || !startEnabled {
 		return Color{}, err
 	}
+	//nolint:exhaustruct  // This is too big to reasonably initialize
 	col := Color{}
 	col.EnableAll()
 	return col, nil

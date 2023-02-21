@@ -46,6 +46,7 @@ func TestManualCreation(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	//nolint:exhaustruct  // This is too big to reasonably initialize
 	color := gocolor.Color{}
 	color.EnableAll()
 
