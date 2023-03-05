@@ -14,6 +14,12 @@ func Prepare(startEnabled bool) (Color, error) {
 	return col, nil
 }
 
+// NewEmpty returns an empty Color struct. Useful to satisfy exhaustruct linter
+func NewEmpty() Color {
+	//nolint:exhaustruct  // This is too big to reasonably initialize
+	return Color{}
+}
+
 // EnableConsole enables color printing on Windows and is a no-op
 // on non-Windows platforms (they enable color printing by default).
 func EnableConsole() error {

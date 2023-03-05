@@ -1,5 +1,7 @@
 # gocolor
 
+![TestWithReflection.png](TestWithReflection.png)
+
 A tiny cross-platform terminal color library that supports enabling and disabling colors.
 
 Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
@@ -20,9 +22,9 @@ fmt.Println(
 )
 ```
 
-Also see [tests](./gocolor_test.go). Also see [mattn/go-isatty](https://github.com/mattn/go-isatty) to test if your program is working with a tty before you enable color.
+See [tests](./gocolor_test.go) for inspiration.
 
-![TestWithReflection.png](TestWithReflection.png)
+I use [mattn/go-isatty](https://github.com/mattn/go-isatty) to test my programs before enabling this.
 
 ## Inspirations
 
