@@ -6,7 +6,7 @@ A tiny cross-platform terminal color library that supports enabling and disablin
 
 Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting
 
-Tested on MacOS and (occasionally) on Ubuntu 20 and Windows 10.
+Tested on macOS and (occasionally) on Ubuntu 20 and Windows 10.
 
 ## Usage
 

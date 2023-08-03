@@ -31,7 +31,7 @@ func (c *Color) Add(color Code, message string) string {
 	return string(color) + message + string(c.Default)
 }
 
-// ColorFunc colors a message and resets the console color afterwards.
+// ColorFunc colors a message and resets the console color afterward.
 // Use Func() to generate a ColorFunc with a specific color
 type ColorFunc = func(message string) string
 
@@ -47,4 +47,4 @@ func (c *Color) Func(codePtr *Code) ColorFunc {
 type Code string
 
 // empty represents the absence of a color code. Used for Disable
-const empty Code = Code("")
+const empty = Code("")
