@@ -14,11 +14,8 @@ linters:
     - exhaustruct
     - gochecknoglobals
     - gochecknoinits
-    # I get the following error here, so... for now commenting out the `gofmt` link
-    # WARN [runner] Can't run linter goanalysis_metalinter: gofmt: can't extract issues from gofmt diff output "--- /Users/bbkane/Git-GH/gocolor/color_gen.go.orig\t2023-02-20 17:30:19\n+++ /Users/bbkane/Git-GH/gocolor/color_gen.go\t2023-02-20 17:30:19\n@@ -132,7 +132,6 @@\n \n \t// Underline - Adds underline\n \tUnderline Code\n-\n }\n \n // DisableAll sets all colors to the empty string, effectively disabling color output\n@@ -228,4 +227,3 @@\n \tc.Positive = Code(\"\\033[27m\")\n \tc.Underline = Code(\"\\033[4m\")\n }\n-\n": can't parse patch: parsing time "2023-02-20 17:30:19" as "2006-01-02 15:04:05 -0700": cannot parse "" as "-0700"
-    # ERRO Running error: 1 error occurred:
-    # 	* can't run linter goanalysis_metalinter: gofmt: can't extract issues from gofmt diff output "--- /Users/bbkane/Git-GH/gocolor/color_gen.go.orig\t2023-02-20 17:30:19\n+++ /Users/bbkane/Git-GH/gocolor/color_gen.go\t2023-02-20 17:30:19\n@@ -132,7 +132,6 @@\n \n \t// Underline - Adds underline\n \tUnderline Code\n-\n }\n \n // DisableAll sets all colors to the empty string, effectively disabling color output\n@@ -228,4 +227,3 @@\n \tc.Positive = Code(\"\\033[27m\")\n \tc.Underline = Code(\"\\033[4m\")\n }\n-\n": can't parse patch: parsing time "2023-02-20 17:30:19" as "2006-01-02 15:04:05 -0700": cannot parse "" as "-0700"
-    # - gofmt
+    - gofmt
+    - goimports
     - nonamedreturns
     - predeclared
   fast: false
