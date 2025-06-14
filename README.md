@@ -8,6 +8,10 @@ Uses colors from https://docs.microsoft.com/en-us/windows/console/console-virtua
 
 Tested on macOS and (occasionally) on Ubuntu 20 and Windows 10.
 
+## Project Status (2025-06-14)
+
+Basically complete! `gocolor` works for my simple use cases. I'm watching issues; please open one for any questions and especially BEFORE submitting a Pull request.
+
 ## Usage
 
 ```go
@@ -25,6 +29,8 @@ fmt.Println(
 See [tests](./gocolor_test.go) for inspiration.
 
 I use [mattn/go-isatty](https://github.com/mattn/go-isatty) to test my programs before enabling this.
+
+See [Go Project Notes](https://www.bbkane.com/blog/go-project-notes/) for notes on development tooling.
 
 ## Inspirations
 
