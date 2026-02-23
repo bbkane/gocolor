@@ -7,6 +7,7 @@ import argparse
 import csv
 import sys
 import typing
+import contextlib
 
 __author__ = "Benjamin Kane"
 __version__ = "0.1.0"
@@ -39,6 +40,10 @@ def parse_args(*args, **kwargs):
         type=int,
         default=1000,
         help="max number of TSV rows to consider. Useful for testing",
+    )
+    parser.add_argument(
+        "--outfile",
+        help="output file to write generated code to. Uses stdout if not passed",
     )
 
     return parser.parse_args(*args, **kwargs)
@@ -74,17 +79,22 @@ class ColorInfo(typing.NamedTuple):
         return ColorInfo(code=code, name=name, description=description)
 
 
-def print_color_struct(colors: typing.List[ColorInfo]):
-    print(
-        "// Color contains all colors listed in https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting"  # noqa
-    )
-    print("type Color struct {")
+def print_color_const_vals(colors: typing.List[ColorInfo]):
+    print("const (")
+    for ci in colors:
+        print(f'\t{ci.name} Code = "{ci.code}" // {ci.description}')
+        # print()
+    print(")")
     print()
 
+def print_color_struct(colors: typing.List[ColorInfo]):
+    print(
+        "// Color contains all colors listed in https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences?redirectedfrom=MSDN#text-formatting . It can be enabled or disabled"  # noqa
+    )
+    print("type Color struct {")
+
     for ci in colors:
-        print(f"\t// {ci.name} - {ci.description}")
-        print(f"\t{ci.name} Code")
-        print()
+        print(f"\t{ci.name} Code // {ci.description}")
 
     print("}")
     print()
@@ -95,7 +105,7 @@ def print_color_enable(colors: typing.List[ColorInfo]):
     print("func (c *Color) EnableAll() {")
 
     for ci in colors:
-        print(f'\tc.{ci.name} = Code("{ci.code}")')
+        print(f'\tc.{ci.name} = {ci.name}')
 
     print("}")
     print()
@@ -118,6 +128,14 @@ def print_package():
     print()
 
 
+def print_all(colors: typing.List[ColorInfo]):
+    print_package()
+    print_color_const_vals(colors)
+    print_color_struct(colors)
+    print_color_disable(colors)
+    print_color_enable(colors)
+
+
 def main():
     args = parse_args()
     with args.infile:
@@ -129,10 +147,13 @@ def main():
     colorinfos.sort(key=lambda c: c.name)
     colorinfos = colorinfos[: args.max_rows]
 
-    print_package()
-    print_color_struct(colorinfos)
-    print_color_disable(colorinfos)
-    print_color_enable(colorinfos)
+
+    if args.outfile:
+        with open(args.outfile, "w") as f:
+            with contextlib.redirect_stdout(f):
+                print_all(colorinfos)
+    else:
+        print_all(colorinfos)
 
 
 if __name__ == "__main__":
