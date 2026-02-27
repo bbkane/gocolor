@@ -6,6 +6,12 @@ is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Note that I update this changelog as I make changes, so the top version (right
 below this description) is likely unreleased.
 
+# v0.0.7
+
+## Added
+
+- Make gocolor.Empty public
+
 # v0.0.6
 
 ## Added

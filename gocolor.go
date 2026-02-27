@@ -46,5 +46,5 @@ func (c *Color) Func(codePtr *Code) ColorFunc {
 // Code is a color code string
 type Code string
 
-// empty represents the absence of a color code. Used for Disable
-const empty = Code("")
+// Empty represents the absence of a color code. Used for Disable
+const Empty = Code("")

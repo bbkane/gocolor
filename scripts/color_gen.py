@@ -116,7 +116,7 @@ def print_color_disable(colors: typing.List[ColorInfo]):
     print("func (c *Color) DisableAll() {")
 
     for ci in colors:
-        print(f"\tc.{ci.name} = empty")
+        print(f"\tc.{ci.name} = Empty")
 
     print("}")
     print()
