@@ -1,5 +1,5 @@
 module go.bbkane.com/gocolor
 
-go 1.17
+go 1.25.0
 
-require golang.org/x/sys v0.10.0
+require golang.org/x/sys v0.47.0
