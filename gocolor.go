@@ -6,18 +6,12 @@ package gocolor
 func Prepare(startEnabled bool) (Color, error) {
 	err := EnableConsole()
 	if err != nil || !startEnabled {
-		return Color{}, err
+		var color Color
+		return color, err
 	}
-	//nolint:exhaustruct  // This is too big to reasonably initialize
-	col := Color{}
+	var col Color
 	col.EnableAll()
 	return col, nil
-}
-
-// NewEmpty returns an empty Color struct. Useful to satisfy exhaustruct linter
-func NewEmpty() Color {
-	//nolint:exhaustruct  // This is too big to reasonably initialize
-	return Color{}
 }
 
 // EnableConsole enables color printing on Windows and is a no-op
